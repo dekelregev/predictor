@@ -20,10 +20,10 @@ html,body{margin:0;padding:0;background:var(--bg);height:100%;font-family:'DM Mo
 .logo-mark{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--accent);letter-spacing:-0.02em}
 .logo-sep{width:1px;height:14px;background:var(--border2)}
 .logo-sub{font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase}
-.logo-badge{font-size:8px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:2px;background:rgba(0,229,160,0.08);color:var(--green);border:1px solid rgba(0,229,160,0.18)}
-.topbar-right{display:flex;align-items:center;gap:12px}
-.pdufa-note{font-size:9px;color:var(--muted);letter-spacing:0.06em}
+.logo-badge{font-size:8px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:2px;background:rgba(155,89,245,0.1);color:#b794f4;border:1px solid rgba(155,89,245,0.25)}
+.topbar-right{display:flex;align-items:center;gap:8px;font-size:9px;color:var(--muted);letter-spacing:0.06em}
 .live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2s ease-in-out infinite}
+.live-dot.off{background:var(--muted);animation:none}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
 .subbar{display:flex;justify-content:space-between;align-items:center;padding:0 24px;height:40px;border-bottom:1px solid var(--border);flex-shrink:0}
 .filter-row{display:flex;gap:4px;align-items:center}
@@ -57,16 +57,15 @@ html,body{margin:0;padding:0;background:var(--bg);height:100%;font-family:'DM Mo
 .tb{color:#00d4ff;border-color:#003d52;background:#001922}
 .tr{color:#ff4f6b;border-color:#5a1020;background:#1f0509}
 .td{color:var(--muted);border-color:var(--border2)}
+.tlive{color:#00e5a0;border-color:#0a3d2a;background:#041a12}
 .pdufa-tag{font-size:8px;color:var(--amber);letter-spacing:0.06em;white-space:nowrap}
 .prob-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px;flex-shrink:0}
 .prob{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;white-space:nowrap;line-height:1}
 .prob-lbl{font-size:7px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
 .bar-wrap{margin-top:7px;height:2px;background:var(--border2);border-radius:1px}
-.bar-fill{height:2px;border-radius:1px}
+.bar-fill{height:2px;border-radius:1px;transition:width 0.4s ease}
 .vol-lbl{font-size:8px;color:var(--dim)}
-.kalshi-link{font-size:8px;color:var(--muted);letter-spacing:0.05em;text-decoration:none;border:1px solid var(--border2);border-radius:2px;padding:2px 8px;transition:color 0.12s,border-color 0.12s}
-.kalshi-link:hover{color:var(--accent);border-color:var(--accent)}
-.no-mkts{padding:40px 20px;text-align:center;font-size:10px;color:var(--muted);letter-spacing:0.06em;line-height:2.2}
+.no-mkts{padding:40px 20px;text-align:center;font-size:10px;color:var(--muted);line-height:2.2}
 .right{display:flex;flex-direction:column;background:var(--surface);overflow:hidden}
 .ap-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--border);flex-shrink:0}
 .ap-lbl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
@@ -97,12 +96,17 @@ html,body{margin:0;padding:0;background:var(--bg);height:100%;font-family:'DM Mo
 .fup{color:var(--green)}.fdn{color:var(--red)}
 .factor-txt{color:var(--muted);line-height:1.6}
 .divider{height:1px;background:var(--border);margin:14px 0}
-.action-btns{display:flex;flex-direction:column;gap:7px;margin-top:4px}
-.act-btn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 14px;border-radius:3px;cursor:pointer;transition:all 0.12s;text-align:center;text-decoration:none;display:block;width:100%}
-.btn-primary{border:1px solid var(--accent);background:var(--accentdim);color:var(--accent)}
-.btn-primary:hover{background:rgba(0,212,255,0.15)}
+.price-input-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding:10px 12px;background:var(--surface2);border-radius:5px;border:1px solid var(--border2)}
+.price-input-lbl{font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;flex:1}
+.price-input{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;width:60px;background:transparent;border:none;border-bottom:1px solid var(--border2);color:var(--text);text-align:center;padding:2px 4px;outline:none}
+.price-input:focus{border-bottom-color:var(--accent)}
+.price-suffix{font-size:12px;color:var(--muted)}
+.recalc-btn{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border2);border-radius:2px;background:transparent;color:var(--muted);cursor:pointer;transition:all 0.12s}
+.recalc-btn:hover{border-color:var(--accent);color:var(--accent)}
 .spin{display:inline-block;width:9px;height:9px;border:1.5px solid var(--dim);border-top-color:var(--accent);border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
+.proxy-banner{background:rgba(255,179,71,0.06);border-bottom:1px solid rgba(255,179,71,0.15);padding:7px 24px;font-size:9px;color:var(--amber);letter-spacing:0.04em;flex-shrink:0}
+.proxy-banner a{color:var(--amber);text-underline-offset:2px}
 </style>
 </head>
 <body>
@@ -112,12 +116,16 @@ html,body{margin:0;padding:0;background:var(--bg);height:100%;font-family:'DM Mo
       <div class="logo-mark">EDGE/</div>
       <div class="logo-sep"></div>
       <div class="logo-sub">FDA approval signal</div>
-      <div class="logo-badge">Kalshi · CFTC regulated</div>
+      <div class="logo-badge">Polymarket · US available</div>
     </div>
     <div class="topbar-right">
-      <div class="pdufa-note">Real PDUFA calendar · Apr–Dec 2026</div>
-      <div class="live-dot"></div>
+      <div class="live-dot" id="live-dot"></div>
+      <span id="live-label">Connecting...</span>
     </div>
+  </div>
+
+  <div class="proxy-banner" id="proxy-banner">
+    Prices shown are estimates. To get live Polymarket odds, deploy the server and set <code>PROXY_URL</code> in this file. See README.md.
   </div>
 
   <div class="subbar">
@@ -153,260 +161,275 @@ html,body{margin:0;padding:0;background:var(--bg);height:100%;font-family:'DM Mo
         <button class="analyze-btn" id="analyze-btn" onclick="runAnalysis()" disabled>Analyze ↗</button>
       </div>
       <div class="ap-body" id="ap-body">
-        <div class="placeholder">Select a market from the list to see its PDUFA date, then click Analyze to get a base rate signal vs. current Kalshi odds.<br><br>Markets are sorted by upcoming PDUFA date. Edge = gap between historical FDA base rate for this drug class and current crowd pricing.</div>
+        <div class="placeholder">Select a market from the list to see its PDUFA date, then click Analyze to get a base rate signal.<br><br>Once the proxy server is deployed, prices update live from Polymarket. Until then, enter the real price manually after analyzing.</div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-const ALL_MARKETS=[
-  {
-    id:'m1',
-    q:"Will the FDA approve AXS-05 (dextromethorphan-bupropion) for Alzheimer's disease agitation?",
-    drug:'AXS-05',company:'Axsome Therapeutics',indication:"Alzheimer's agitation",
-    pdufa:'Apr 30, 2026',pdufaTs:20260430,cat:'neuro',
-    yes:72,
-    url:'https://kalshi.com/category/science/fda-approval',
-    note:'Breakthrough Therapy designation. Priority Review. Phase 3 ACCORD trial met primary endpoints. Only drug specifically indicated for AD agitation — enormous unmet need.',
-    bull:['Breakthrough Therapy designation granted — FDA has been highly engaged throughout development','Phase 3 ACCORD trial met primary and key secondary endpoints with statistical significance','Enormous unmet need: AD agitation affects ~50% of patients, no approved treatment exists','Priority Review accepted — FDA committed to 6-month turnaround'],
-    bear:['AXS-05 combines two existing approved drugs — FDA may scrutinize whether the fixed-dose combo adds distinct value','Psychiatric indications have historically had higher complete response letter rates than other areas','Dextromethorphan CNS side effects (dizziness, dissociation) may complicate label negotiation'],
-    baseRate:74,conf:'High'
-  },
-  {
-    id:'m6',
-    q:"Will the FDA approve Afrezza (inhaled insulin) for the pediatric indication in children with diabetes?",
-    drug:'Afrezza pediatric',company:'MannKind',indication:'Pediatric diabetes (inhaled insulin)',
-    pdufa:'May 29, 2026',pdufaTs:20260529,cat:'other',
-    yes:65,
-    url:'https://kalshi.com/category/science/fda-approval',
-    note:'Afrezza already approved in adults. sNDA for pediatric label expansion. Phase 3 pediatric data submitted. FDA generally views pediatric extensions favorably given existing adult approval and PREA requirements.',
-    bull:['Afrezza already approved in adults — pediatric extension follows established safety and PK profile','FDA incentivized to approve pediatric labels under the Pediatric Research Equity Act (PREA)','Inhaled delivery highly preferred over injections in pediatric population — strong adherence benefit','Phase 3 pediatric data demonstrated non-inferiority to injectable insulin'],
-    bear:['Lung function concerns in developing lungs may give FDA pause for chronic pediatric use','Afrezza has historically underperformed commercially despite adult approval — FDA may question benefit-risk','MannKind is a small company — manufacturing consistency and label negotiation may face delays'],
-    baseRate:72,conf:'High'
-  },
-  {
-    id:'m3',
-    q:"Will the FDA approve baxdrostat for hard-to-control (treatment-resistant) hypertension?",
-    drug:'Baxdrostat',company:'AstraZeneca',indication:'Treatment-resistant hypertension',
-    pdufa:'Late Jun 2026',pdufaTs:20260625,cat:'cardio',
-    yes:61,
-    url:'https://kalshi.com/category/science/fda-approval',
-    note:'Priority Review. NDA based on BaxHTN Phase 3 trial published simultaneously in NEJM. First-in-class aldosterone synthase inhibitor. Would be first new hypertension mechanism in over 20 years.',
-    bull:['Phase 3 BaxHTN met all primary and secondary endpoints, simultaneously published in NEJM','First-in-class aldosterone synthase inhibitor — novel mechanism with no direct competitor','Priority Review voucher used — FDA committed to 6-month review timeline','Massive commercial need: ~50% of hypertension patients on multiple drugs remain uncontrolled'],
-    bear:['Aldosterone synthase inhibition is a novel target — FDA will scrutinize long-term cortisol effects carefully','First-in-class drugs face inherently higher regulatory uncertainty than drugs in established classes','Hard-to-control hypertension label may be narrower than hoped, limiting addressable market'],
-    baseRate:72,conf:'High'
-  },
-  {
-    id:'m4',
-    q:"Will the FDA approve olezarsen for severe hypertriglyceridemia and familial chylomicronemia syndrome?",
-    drug:'Olezarsen',company:'Ionis / AstraZeneca',indication:'Severe hypertriglyceridemia / FCS',
-    pdufa:'Late Jun 2026',pdufaTs:20260628,cat:'cardio',
-    yes:55,
-    url:'https://kalshi.com/category/science/fda-approval',
-    note:'ApoC-III antisense oligonucleotide. Phase 3 BALANCE trial showed dramatic TG reduction (~60%). Rare disease designation for FCS subgroup. Late June PDUFA clustered with baxdrostat.',
-    bull:['Phase 3 BALANCE trial showed ~60% TG reduction — clinically and statistically significant','Rare disease (FCS) pathway provides regulatory flexibility and accepts smaller trial populations','ApoC-III ASO class has validated mechanism — volanesorsen approved in Europe for same indication','Ionis has a strong RNA/ASO regulatory track record with FDA across multiple approvals'],
-    bear:['Volanesorsen (same class, same target) was rejected by FDA in 2018 on platelet safety concerns — legacy risk','Platelet reduction observed in some patients — FDA may require a REMS for monitoring','TG reduction as a surrogate endpoint is not universally accepted for cardiovascular outcomes by FDA'],
-    baseRate:62,conf:'Medium'
-  },
-  {
-    id:'m5',
-    q:"Will the FDA approve cytisinicline for smoking cessation in adults?",
-    drug:'Cytisinicline',company:'Achieve Life Sciences',indication:'Smoking cessation',
-    pdufa:'Late Jun 2026',pdufaTs:20260630,cat:'other',
-    yes:44,
-    url:'https://kalshi.com/category/science/fda-approval',
-    note:'Plant-derived partial nicotinic agonist. ORCA Phase 3 showed superior abstinence vs placebo with a more favorable nausea profile than varenicline. Would be the first new smoking cessation pharmacotherapy in ~20 years.',
-    bull:['ORCA Phase 3 met primary endpoint with superior abstinence vs placebo across all timepoints','Favorable nausea profile vs varenicline (Chantix) — addresses the #1 barrier to existing therapy','No new smoking cessation pharmacotherapy approved in nearly 20 years — clear public health unmet need','Established mechanism (partial nicotinic agonist) similar to varenicline — well-understood safety class'],
-    bear:['Varenicline (Chantix) is now genericized — commercial case for premium cytisinicline pricing is unclear','Modest absolute abstinence rates (~25%) limit the strength of clinical impact claims to FDA','Small company (Achieve Life Sciences) with limited regulatory and commercial infrastructure vs major pharma'],
-    baseRate:55,conf:'Medium'
-  },
-  {
-    id:'m2',
-    q:"Will the FDA approve Orca-T for treatment of hematological malignancies (AML, ALL, MDS)?",
-    drug:'Orca-T',company:'Orca Bio',indication:'Blood cancers (AML / ALL / MDS)',
-    pdufa:'Jul 6, 2026',pdufaTs:20260706,cat:'onco',
-    yes:48,
-    url:'https://kalshi.com/category/science/fda-approval',
-    note:'Priority Review BLA. Phase 3 Precision-T trial showed superior outcomes vs conventional alloHSCT. PDUFA was extended from April to July 2026 due to FDA information request.',
-    bull:['Priority Review granted with strong Phase 3 Precision-T data vs standard of care transplant','Novel T-cell engineering addresses GVHD (the major transplant complication) directly at the source','Large unmet need in AML/ALL/MDS where transplant outcomes remain poor despite existing options','FDA has been increasingly receptive to cell therapy approvals in hematologic malignancies'],
-    bear:['PDUFA extended in April 2026 — FDA information requests typically signal outstanding questions','Manufacturing complexity of allogeneic cell therapy creates scalability and lot consistency concerns','Competing CAR-T therapies and other cell therapies already approved in partially overlapping indications'],
-    baseRate:58,conf:'Medium'
-  },
-  {
-    id:'m7',
-    q:"Will the FDA approve oveporexton (TAK-861) for narcolepsy type 1 with cataplexy?",
-    drug:'Oveporexton (TAK-861)',company:'Takeda',indication:'Narcolepsy type 1',
-    pdufa:'Q3 2026',pdufaTs:20260831,cat:'neuro',
-    yes:58,
-    url:'https://kalshi.com/category/science/fda-approval',
-    note:'First orexin receptor 2 agonist targeting the root cause of narcolepsy. Phase 3 pivotal data showed statistically significant improvement in daytime sleepiness and cataplexy. NDA submitted March 2026.',
-    bull:['First drug to target root cause of narcolepsy (orexin deficiency) rather than masking symptoms','Phase 3 showed statistically significant, clinically meaningful improvement in EDS and cataplexy frequency','FDA has fast-tracked development given high unmet need in narcolepsy type 1 population','Takeda has strong regulatory infrastructure and established FDA relationship across multiple approvals'],
-    bear:['NDA submitted March 2026 — PDUFA date not yet officially confirmed by FDA; Q3 2026 is an estimate','Orexin receptor agonism is first-in-class mechanism — FDA will require robust long-term safety data','Narcolepsy patient identification and diagnosis rate is low — real-world benefit harder to demonstrate'],
-    baseRate:65,conf:'Medium'
-  },
-  {
-    id:'m8',
-    q:"Will the FDA approve any psychedelic substance (psilocybin or MDMA) for medical use in 2026?",
-    drug:'Psilocybin / MDMA',company:'Multiple sponsors',indication:'Depression / PTSD',
-    pdufa:'2026',pdufaTs:20261231,cat:'neuro',
-    yes:18,
-    url:'https://kalshi.com/markets/kxfdaapprovalpsychedelic/fda-approval-psychedelic/kxfdaapprovalpsychedelic-27',
-    note:'FDA rejected the LYKOS MDMA application in August 2024. Psilocybin remains in Phase 3. The market prices ~18% probability — our base rate model suggests this is still too high.',
-    bull:['Breakthrough Therapy designation for psilocybin in treatment-resistant depression signals active FDA engagement','Strong bipartisan political will for mental health innovation could accelerate regulatory flexibility','New sponsors may resubmit MDMA with improved trial design that addresses FDA functional unblinding concerns'],
-    bear:['FDA explicitly rejected MDMA (LYKOS) in August 2024 citing trial methodology and safety data gaps','Psilocybin Phase 3 trials have not completed — no NDA or BLA has been submitted for a 2026 decision','Scheduling under the Controlled Substances Act creates a DEA hurdle entirely separate from FDA approval'],
-    baseRate:12,conf:'High'
-  },
+// ─── SET THIS AFTER DEPLOYING THE SERVER ───────────────────────────────────
+const PROXY_URL = '';  // e.g. 'https://your-app.up.railway.app'
+// ──────────────────────────────────────────────────────────────────────────
+
+const BASE_MARKETS = [
+  {id:'m1',q:"Will the FDA approve AXS-05 (dextromethorphan-bupropion) for Alzheimer's disease agitation?",
+   drug:'AXS-05',company:'Axsome Therapeutics',indication:"Alzheimer's agitation",
+   pdufa:'Apr 30, 2026',pdufaTs:20260430,cat:'neuro',yes:null,live:false,
+   note:"Breakthrough Therapy designation. Priority Review. Phase 3 ACCORD trial met primary endpoints. The only drug in development specifically for AD agitation — no currently approved treatment exists.",
+   bull:['Breakthrough Therapy designation granted — FDA highly engaged throughout development','Phase 3 ACCORD met primary and key secondary endpoints with statistical significance','AD agitation affects ~50% of patients with zero approved treatments — massive unmet need','Priority Review accepted — FDA committed to 6-month turnaround'],
+   bear:['Combines two existing approved drugs — FDA may question whether fixed-dose combo adds distinct value','Psychiatric indications historically have higher complete response letter rates','One Phase 3 trial (ADVANCE-2) missed its primary endpoint — mixed data package'],
+   baseRate:74,conf:'High'},
+  {id:'m6',q:"Will the FDA approve Afrezza (inhaled insulin) for the pediatric indication in children with diabetes?",
+   drug:'Afrezza pediatric',company:'MannKind',indication:'Pediatric diabetes',
+   pdufa:'May 29, 2026',pdufaTs:20260529,cat:'other',yes:null,live:false,
+   note:'Afrezza already FDA-approved in adults. sNDA for pediatric label expansion. Phase 3 pediatric data submitted. FDA generally views pediatric extensions favorably under PREA requirements.',
+   bull:['Already approved in adults — pediatric extension follows established safety and PK profile','FDA incentivized under Pediatric Research Equity Act (PREA) to approve pediatric labels','Inhaled delivery strongly preferred over injections in children — major adherence advantage','Phase 3 pediatric data demonstrated non-inferiority to injectable insulin'],
+   bear:['Lung function concerns in developing lungs may give FDA pause for chronic pediatric use','Afrezza has historically underperformed commercially despite adult approval','MannKind is a small company — manufacturing and label negotiation may face delays'],
+   baseRate:72,conf:'High'},
+  {id:'m5',q:"Will the FDA approve cytisinicline for smoking cessation in adults?",
+   drug:'Cytisinicline',company:'Achieve Life Sciences',indication:'Smoking cessation',
+   pdufa:'Jun 20, 2026',pdufaTs:20260620,cat:'other',yes:null,live:false,
+   note:'Plant-derived partial nicotinic agonist. ORCA Phase 3 showed superior abstinence vs placebo with favorable nausea profile. Would be the first new smoking cessation pharmacotherapy in ~20 years.',
+   bull:['ORCA Phase 3 met primary endpoint vs placebo across all timepoints','Favorable nausea profile vs varenicline — addresses the #1 barrier to existing therapy','No new smoking cessation drug approved in nearly 20 years — clear public health need','Established mechanism similar to varenicline — well-understood safety class for FDA'],
+   bear:['Varenicline genericized — commercial case for premium cytisinicline pricing unclear','Modest ~25% absolute abstinence rates limit strength of clinical impact claims','Small company with limited regulatory and commercial infrastructure vs major pharma'],
+   baseRate:55,conf:'Medium'},
+  {id:'m3',q:"Will the FDA approve baxdrostat for hard-to-control (treatment-resistant) hypertension?",
+   drug:'Baxdrostat',company:'AstraZeneca',indication:'Treatment-resistant hypertension',
+   pdufa:'Late Jun 2026',pdufaTs:20260625,cat:'cardio',yes:null,live:false,
+   note:'Priority Review. NDA based on BaxHTN Phase 3 published in NEJM. First-in-class aldosterone synthase inhibitor. Would be first new hypertension mechanism in over 20 years.',
+   bull:['BaxHTN met all primary and secondary endpoints, simultaneously published in NEJM','First-in-class aldosterone synthase inhibitor with no direct competitor','Priority Review voucher used — FDA committed to 6-month review','~50% of hypertension patients on multiple drugs remain uncontrolled — massive unmet need'],
+   bear:['Novel target — FDA will scrutinize long-term cortisol effects carefully','First-in-class drugs face inherently higher regulatory uncertainty','Label may be narrower than hoped, limiting addressable market size'],
+   baseRate:72,conf:'High'},
+  {id:'m4',q:"Will the FDA approve olezarsen for severe hypertriglyceridemia and familial chylomicronemia syndrome?",
+   drug:'Olezarsen',company:'Ionis / AstraZeneca',indication:'Severe hypertriglyceridemia / FCS',
+   pdufa:'Late Jun 2026',pdufaTs:20260628,cat:'cardio',yes:null,live:false,
+   note:'ApoC-III antisense oligonucleotide. Phase 3 BALANCE trial showed ~60% TG reduction. Rare disease designation for FCS subgroup. Late June PDUFA clustered with baxdrostat.',
+   bull:['Phase 3 BALANCE showed ~60% TG reduction — clinically and statistically significant','Rare disease pathway provides regulatory flexibility and accepts smaller trial sizes','ApoC-III ASO class validated — volanesorsen approved in Europe for same indication','Ionis has strong RNA/ASO track record across multiple FDA approvals'],
+   bear:['Volanesorsen (same class) rejected by FDA in 2018 on platelet safety — legacy risk','Platelet reduction observed — FDA may require a REMS monitoring program','TG reduction as surrogate endpoint not universally accepted for CV outcomes'],
+   baseRate:62,conf:'Medium'},
+  {id:'m2',q:"Will the FDA approve Orca-T for treatment of hematological malignancies (AML, ALL, MDS)?",
+   drug:'Orca-T',company:'Orca Bio',indication:'Blood cancers (AML / ALL / MDS)',
+   pdufa:'Jul 6, 2026',pdufaTs:20260706,cat:'onco',yes:null,live:false,
+   note:'Priority Review BLA. Phase 3 Precision-T showed superior outcomes vs conventional alloHSCT. PDUFA extended from April to July 2026 due to FDA major amendment request.',
+   bull:['Priority Review with strong Phase 3 Precision-T data vs standard of care transplant','Novel T-cell engineering directly addresses GVHD — the major transplant complication','Large unmet need in AML/ALL/MDS where transplant outcomes remain poor','FDA increasingly receptive to cell therapy approvals in blood cancers'],
+   bear:['PDUFA extended in April 2026 — major amendments signal outstanding FDA questions','Allogeneic cell therapy manufacturing creates lot consistency concerns','Competing CAR-T therapies approved in partially overlapping indications'],
+   baseRate:58,conf:'Medium'},
+  {id:'m7',q:"Will the FDA approve oveporexton (TAK-861) for narcolepsy type 1 with cataplexy?",
+   drug:'Oveporexton (TAK-861)',company:'Takeda',indication:'Narcolepsy type 1',
+   pdufa:'Q3 2026',pdufaTs:20260831,cat:'neuro',yes:null,live:false,
+   note:'First orexin receptor 2 agonist targeting root cause of narcolepsy. Phase 3 pivotal data showed significant improvement in daytime sleepiness and cataplexy. NDA submitted March 2026.',
+   bull:['First drug targeting root cause of narcolepsy (orexin deficiency) not just symptoms','Phase 3 showed statistically significant improvement in EDS and cataplexy frequency','FDA fast-tracked given high unmet need in narcolepsy type 1 population','Takeda has strong regulatory infrastructure and established FDA track record'],
+   bear:['NDA submitted March 2026 — PDUFA date not yet officially confirmed; Q3 is estimated','First-in-class orexin agonism — FDA will require robust long-term safety data','Low narcolepsy diagnosis rate complicates demonstrating real-world benefit'],
+   baseRate:65,conf:'Medium'},
+  {id:'m8',q:"Will the FDA approve any psychedelic substance (psilocybin or MDMA) for medical use in 2026?",
+   drug:'Psilocybin / MDMA',company:'Multiple sponsors',indication:'Depression / PTSD',
+   pdufa:'2026',pdufaTs:20261231,cat:'neuro',yes:null,live:false,
+   note:'FDA rejected the LYKOS MDMA application in August 2024. Psilocybin remains in Phase 3 with no NDA submitted. Market prices reflect ~18% — our base rate model suggests even this is too high.',
+   bull:['Breakthrough Therapy designation for psilocybin signals active FDA engagement','Bipartisan political will for mental health innovation could accelerate regulatory flexibility','New sponsors may resubmit MDMA with improved trial design addressing FDA concerns'],
+   bear:['FDA explicitly rejected MDMA (LYKOS) in August 2024 on methodology and safety grounds','Psilocybin Phase 3 not complete — no NDA or BLA submitted for a 2026 decision','DEA scheduling creates a separate approval hurdle entirely independent of FDA'],
+   baseRate:12,conf:'High'},
 ];
 
-const S={filter:'all',sort:'pdufa',selected:null,analyzed:0};
+const S = { filter:'all', sort:'pdufa', selected:null, analyzed:0, markets:[...BASE_MARKETS], liveLoaded:false };
 
-function pCol(p){return p>=60?'#00e5a0':p>=40?'#ffb347':'#ff4f6b';}
-function edgeSize(m){return Math.abs(m.baseRate-m.yes);}
+function pCol(p){ return p>=60?'#00e5a0':p>=40?'#ffb347':'#ff4f6b'; }
+function edgeSize(m){ return m.yes!==null ? Math.abs(m.baseRate-m.yes) : 0; }
+function fmtVol(v){ if(!v)return''; if(v>=1e6)return'$'+(v/1e6).toFixed(1)+'M vol'; if(v>=1e3)return'$'+Math.round(v/1e3)+'K vol'; return''; }
 
 function getCatTag(cat){
-  const map={
-    cardio:'<span class="tag tg">Cardio</span>',
-    neuro:'<span class="tag tb">Neurology</span>',
-    onco:'<span class="tag ta">Oncology</span>',
-    other:'<span class="tag td">Other</span>'
-  };
+  const map={cardio:'<span class="tag tg">Cardio</span>',neuro:'<span class="tag tb">Neurology</span>',onco:'<span class="tag ta">Oncology</span>',other:'<span class="tag td">Other</span>'};
   return map[cat]||'<span class="tag td">FDA</span>';
 }
 
-function setFilter(f,el){
-  S.filter=f;
-  document.querySelectorAll('.filter-row .fbtn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  renderMarkets();
-}
-
-function setSort(s,el){
-  S.sort=s;
-  document.querySelectorAll('.sort-row .fbtn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  renderMarkets();
-}
+function setFilter(f,el){ S.filter=f; document.querySelectorAll('.filter-row .fbtn').forEach(b=>b.classList.remove('active')); el.classList.add('active'); renderMarkets(); }
+function setSort(s,el){ S.sort=s; document.querySelectorAll('.sort-row .fbtn').forEach(b=>b.classList.remove('active')); el.classList.add('active'); renderMarkets(); }
 
 function getFiltered(){
-  let ms=S.filter==='all'?[...ALL_MARKETS]:ALL_MARKETS.filter(m=>m.cat===S.filter);
+  let ms = S.filter==='all' ? [...S.markets] : S.markets.filter(m=>m.cat===S.filter);
   if(S.sort==='pdufa') ms.sort((a,b)=>a.pdufaTs-b.pdufaTs);
   else ms.sort((a,b)=>edgeSize(b)-edgeSize(a));
   return ms;
 }
 
 function renderMarkets(){
-  const list=document.getElementById('mlist');
-  const filtered=getFiltered();
-  const strong=ALL_MARKETS.filter(m=>edgeSize(m)>=12).length;
-  document.getElementById('s-edge').textContent=strong;
-  if(!filtered.length){
-    list.innerHTML='<div class="no-mkts">No markets match this filter</div>';
-    return;
-  }
-  list.innerHTML=filtered.map(m=>{
-    const sel=S.selected&&S.selected.id===m.id;
-    const diff=m.baseRate-m.yes;
-    const edgeHint=Math.abs(diff)>=12
-      ?(diff>0?'<span class="tag tg">edge YES</span>':'<span class="tag tr">edge NO</span>')
-      :'';
-    return`<div class="mcard${sel?' sel':''}" onclick="selectMarket('${m.id}')">
+  const list = document.getElementById('mlist');
+  const filtered = getFiltered();
+  const strong = S.markets.filter(m=>m.yes!==null && edgeSize(m)>=12).length;
+  document.getElementById('s-edge').textContent = strong;
+  if(!filtered.length){ list.innerHTML='<div class="no-mkts">No markets match this filter</div>'; return; }
+  list.innerHTML = filtered.map(m=>{
+    const sel = S.selected && S.selected.id===m.id;
+    const hasPrice = m.yes !== null;
+    const diff = hasPrice ? m.baseRate - m.yes : null;
+    const edgeHint = hasPrice && Math.abs(diff)>=12 ? (diff>0?'<span class="tag tg">edge YES</span>':'<span class="tag tr">edge NO</span>') : '';
+    const liveTag = m.live ? '<span class="tag tlive">live</span>' : '';
+    const probHtml = hasPrice
+      ? `<div class="prob" style="color:${pCol(m.yes)}">${m.yes}%</div><div class="prob-lbl">${m.live?'POLYMARKET':'MANUAL'}</div>`
+      : `<div class="prob" style="color:var(--muted)">—</div><div class="prob-lbl">NO PRICE</div>`;
+    return `<div class="mcard${sel?' sel':''}" onclick="selectMarket('${m.id}')">
       <div class="mcard-q">${m.q}</div>
       <div class="mcard-row">
-        <div class="tags">${getCatTag(m.cat)}<span class="pdufa-tag">PDUFA ${m.pdufa}</span>${edgeHint}</div>
-        <div class="prob-wrap">
-          <div class="prob" style="color:${pCol(m.yes)}">${m.yes}%</div>
-          <div class="prob-lbl">EST. YES</div>
-        </div>
+        <div class="tags">${getCatTag(m.cat)}<span class="pdufa-tag">PDUFA ${m.pdufa}</span>${liveTag}${edgeHint}</div>
+        <div class="prob-wrap">${probHtml}</div>
       </div>
-      <div class="bar-wrap"><div class="bar-fill" style="width:${m.yes}%;background:${pCol(m.yes)}"></div></div>
+      ${hasPrice ? `<div class="bar-wrap"><div class="bar-fill" style="width:${m.yes}%;background:${pCol(m.yes)}"></div></div>` : ''}
       <div class="mcard-bottom">
-        <div class="vol-lbl">${m.company} · ${m.indication}</div>
-        <a class="kalshi-link" href="${m.url}" target="_blank" onclick="event.stopPropagation()">Kalshi ↗</a>
+        <div class="vol-lbl">${m.company} · ${m.indication}${m.volume?'  ·  '+fmtVol(m.volume):''}</div>
       </div>
     </div>`;
   }).join('');
 }
 
 function selectMarket(id){
-  S.selected=ALL_MARKETS.find(m=>m.id===id);
+  S.selected = S.markets.find(m=>m.id===id);
   renderMarkets();
-  document.getElementById('analyze-btn').disabled=false;
-  document.getElementById('ap-body').innerHTML=`
-    <div class="placeholder">
-      <span style="color:var(--text);font-weight:500">${S.selected.drug}</span><br>
-      ${S.selected.indication} · ${S.selected.company}<br>
-      PDUFA: ${S.selected.pdufa}<br><br>
-      ${S.selected.note}<br><br>
-      Click Analyze ↗ for full base rate signal.
-    </div>`;
+  document.getElementById('analyze-btn').disabled = false;
+  document.getElementById('ap-body').innerHTML = `<div class="placeholder"><span style="color:var(--text);font-weight:500">${S.selected.drug}</span><br>${S.selected.indication} · ${S.selected.company}<br>PDUFA: ${S.selected.pdufa}<br><br>${S.selected.note}<br><br>Click Analyze ↗ for base rate signal.</div>`;
 }
 
 function analyze(m){
-  const diff=m.baseRate-m.yes;
-  const abs=Math.abs(diff);
-  let edge='market looks fair';
-  if(abs>=16) edge=diff>0?'strong edge YES':'strong edge NO';
-  else if(abs>=10) edge=diff>0?'moderate edge YES':'moderate edge NO';
-  else if(abs>=5) edge=diff>0?'slight edge YES':'slight edge NO';
+  const diff = m.yes!==null ? m.baseRate - m.yes : null;
+  const abs = diff!==null ? Math.abs(diff) : 0;
+  let edge = 'enter price to calculate';
+  if(diff!==null){
+    if(abs>=16) edge=diff>0?'strong edge YES':'strong edge NO';
+    else if(abs>=10) edge=diff>0?'moderate edge YES':'moderate edge NO';
+    else if(abs>=5) edge=diff>0?'slight edge YES':'slight edge NO';
+    else edge='market looks fair';
+  }
   return{diff,edge};
 }
 
-function runAnalysis(){
-  if(!S.selected)return;
-  const btn=document.getElementById('analyze-btn');
-  btn.disabled=true;
-  btn.innerHTML='<span class="spin"></span>';
-  const ap=document.getElementById('ap-body');
-  ap.innerHTML='<div class="placeholder"><span class="spin"></span>&nbsp; Running base rate model...</div>';
-  setTimeout(()=>{
-    const m=S.selected;
-    const {diff,edge}=analyze(m);
-    const abs=Math.abs(diff);
-    const vCls=abs<5?'vfair':diff>0?'vyes':'vno';
-    const dCls=abs<5?'dn':diff>0?'dg':'dr';
-    ap.innerHTML=`
-      <div class="eg">
-        <div class="egc">
-          <div class="egn" style="color:${pCol(m.yes)}">${m.yes}%</div>
-          <div class="egl">Est. Kalshi</div>
+function renderAnalysis(){
+  const m = S.selected;
+  if(!m) return;
+  const{diff,edge} = analyze(m);
+  const abs = diff!==null ? Math.abs(diff) : 0;
+  const vCls = diff===null?'vfair':abs<5?'vfair':diff>0?'vyes':'vno';
+  const dCls = diff===null?'dn':abs<5?'dn':diff>0?'dg':'dr';
+  document.getElementById('ap-body').innerHTML = `
+    <div class="eg">
+      <div class="egc">
+        <div class="egn" style="color:${m.yes!==null?pCol(m.yes):'var(--muted)'}">
+          ${m.yes!==null?m.yes+'%':'—'}
         </div>
-        <div class="egc">
-          <div class="egn ${diff===0?'eneu':diff>0?'epos':'eneg'}">${diff>0?'+':''}${diff}pp</div>
-          <div class="egl">Edge signal</div>
+        <div class="egl">${m.live?'Polymarket live':'Market odds'}</div>
+      </div>
+      <div class="egc">
+        <div class="egn ${diff===null?'eneu':diff===0?'eneu':diff>0?'epos':'eneg'}">
+          ${diff!==null?(diff>0?'+':'')+diff+'pp':'—'}
         </div>
-        <div class="egc">
-          <div class="egn" style="color:${pCol(m.baseRate)}">${m.baseRate}%</div>
-          <div class="egl">Base rate</div>
-        </div>
+        <div class="egl">Edge signal</div>
       </div>
-      <div class="verdict ${vCls}">
-        <span class="dot ${dCls}"></span>
-        <span class="vtxt">${edge}</span>
-        <span class="conf">${m.conf} confidence</span>
+      <div class="egc">
+        <div class="egn" style="color:${pCol(m.baseRate)}">${m.baseRate}%</div>
+        <div class="egl">Base rate</div>
       </div>
-      <div class="divider"></div>
-      <div class="section-title">Bull factors</div>
-      <div class="factors">
-        ${m.bull.map(f=>`<div class="factor"><span class="factor-dir fup">+</span><span class="factor-txt">${f}</span></div>`).join('')}
-      </div>
-      <div class="divider"></div>
-      <div class="section-title">Bear factors</div>
-      <div class="factors">
-        ${m.bear.map(f=>`<div class="factor"><span class="factor-dir fdn">−</span><span class="factor-txt">${f}</span></div>`).join('')}
-      </div>
-      <div class="divider"></div>
-      <div class="action-btns">
-        <a class="act-btn btn-primary" href="${m.url}" target="_blank">View on Kalshi ↗</a>
-      </div>`;
-    S.analyzed++;
-    document.getElementById('s-analyzed').textContent=S.analyzed;
-    btn.disabled=false;
-    btn.textContent='Re-analyze ↗';
-  },500);
+    </div>
+    <div class="verdict ${vCls}">
+      <span class="dot ${dCls}"></span>
+      <span class="vtxt">${edge}</span>
+      <span class="conf">${m.conf} confidence</span>
+    </div>
+    <div class="price-input-row">
+      <div class="price-input-lbl">Enter real Polymarket price</div>
+      <input class="price-input" type="number" min="0" max="100" step="1" id="price-input"
+        value="${m.yes!==null?m.yes:''}" placeholder="—" />
+      <div class="price-suffix">%</div>
+      <button class="recalc-btn" onclick="applyManualPrice()">Update</button>
+    </div>
+    <div class="divider"></div>
+    <div class="section-title">Bull factors</div>
+    <div class="factors">${m.bull.map(f=>`<div class="factor"><span class="factor-dir fup">+</span><span class="factor-txt">${f}</span></div>`).join('')}</div>
+    <div class="divider"></div>
+    <div class="section-title">Bear factors</div>
+    <div class="factors">${m.bear.map(f=>`<div class="factor"><span class="factor-dir fdn">−</span><span class="factor-txt">${f}</span></div>`).join('')}</div>`;
 }
 
+function applyManualPrice(){
+  const val = parseInt(document.getElementById('price-input').value);
+  if(isNaN(val)||val<0||val>100) return;
+  const m = S.markets.find(x=>x.id===S.selected.id);
+  m.yes = val;
+  m.live = false;
+  S.selected = m;
+  renderMarkets();
+  renderAnalysis();
+  document.getElementById('s-edge').textContent = S.markets.filter(m=>m.yes!==null&&edgeSize(m)>=12).length;
+}
+
+function runAnalysis(){
+  if(!S.selected) return;
+  const btn = document.getElementById('analyze-btn');
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span>';
+  setTimeout(()=>{
+    renderAnalysis();
+    S.analyzed++;
+    document.getElementById('s-analyzed').textContent = S.analyzed;
+    btn.disabled=false; btn.textContent='Re-analyze ↗';
+  }, 400);
+}
+
+// Try to load live prices from proxy
+async function loadLivePrices(){
+  if(!PROXY_URL) return;
+  try{
+    const res = await fetch(`${PROXY_URL}/api/fda-markets`);
+    if(!res.ok) throw new Error('Server error');
+    const data = await res.json();
+    const liveMarkets = data.markets || [];
+
+    // Match live markets to our curated list by keyword matching
+    const keywords = {
+      m1: ['axs-05','alzheimer','dextromethorphan','agitation'],
+      m6: ['afrezza','inhaled insulin','pediatric','mannkind'],
+      m5: ['cytisinicline','smoking cessation'],
+      m3: ['baxdrostat','hypertension'],
+      m4: ['olezarsen','hypertriglyceridemia','chylomicronemia'],
+      m2: ['orca-t','orca bio','aml','hematological'],
+      m7: ['oveporexton','tak-861','narcolepsy'],
+      m8: ['psychedelic','psilocybin','mdma'],
+    };
+
+    let matched = 0;
+    for(const [id, kws] of Object.entries(keywords)){
+      const lm = liveMarkets.find(m=>{
+        const q = (m.question||'').toLowerCase();
+        return kws.some(k=>q.includes(k));
+      });
+      if(lm){
+        const market = S.markets.find(m=>m.id===id);
+        if(market){
+          market.yes = lm.yes;
+          market.live = true;
+          market.volume = lm.volume;
+          market.polyUrl = lm.url;
+          matched++;
+        }
+      }
+    }
+
+    if(matched>0){
+      S.liveLoaded = true;
+      document.getElementById('live-dot').classList.remove('off');
+      document.getElementById('live-label').textContent = `Polymarket live · ${matched} matched`;
+      document.getElementById('proxy-banner').style.display = 'none';
+      renderMarkets();
+      document.getElementById('s-edge').textContent = S.markets.filter(m=>m.yes!==null&&edgeSize(m)>=12).length;
+    }
+  } catch(e){
+    document.getElementById('live-dot').classList.add('off');
+    document.getElementById('live-label').textContent = 'Proxy offline · enter prices manually';
+  }
+}
+
+// Init
+document.getElementById('live-dot').classList.add('off');
 renderMarkets();
+loadLivePrices();
+// Refresh every 60 seconds if proxy is set
+if(PROXY_URL) setInterval(loadLivePrices, 60000);
 </script>
 </body>
 </html>
